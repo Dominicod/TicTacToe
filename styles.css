@@ -1,0 +1,55 @@
+.buttonarray {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+button {
+    margin: 0 16px 0 16px;
+}
+
+table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row > td {
+    width: 150px;
+    height: 150px;
+    font-size: 100px;
+    border: solid;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.x {
+    color: red;
+    font-size: bold;
+}
+
+.o {
+    color: green;
+    font-size: bold;
+}
+
+.validation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.displayNone {
+    display: none;
+}
+
+.display {
+    display: inline;
+}
