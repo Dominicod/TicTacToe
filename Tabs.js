@@ -1,3 +1,4 @@
+
 // Tab Selector
 function tab(input) {
     tabs = document.getElementById('tabs');
@@ -24,9 +25,9 @@ function tab(input) {
         tabs.innerHTML = `
         <button onClick="tab(0)">Go Back</button>
         <button onClick="clearBoard()">Clear Board</button>
-        <button onClick="random()">Quick Game</button>
+        <button onClick="tictactoe(0, 0)">Quick Game</button>
         <button onClick="">Step-Through</button>
-        <button onClick="">Timed Game</button>
+        <button onClick="tab(5)">Timed Game</button>
         `
     } else if (input == 4) {
         tabs.innerHTML = `
@@ -35,6 +36,11 @@ function tab(input) {
         <button onClick="">Quick Game</button>
         <button onClick="">Step-Through</button>
         <button onClick="">Timed Game</button>
+        `
+    }
+    else if (input == 5) {
+        tabs.innerHTML = `
+        <button onClick="tab(0)">Go Back</button>
         `
     }
 }
