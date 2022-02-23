@@ -1,12 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Permanent+Marker&display=swap');
+
+html {
+    height: 100vh;
+    width: 100%;
+    background-color: #414A53;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
 .buttonarray {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 16px;
 }
-
 button {
     margin: 0 16px 0 16px;
+    padding: 8px;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+    background-color: rgba(50, 99, 71, 0.8);
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: bold;
+}
+button:hover {
+    background-color: rgba(50, 99, 71, 0.6);
 }
 
 table {
@@ -20,6 +38,7 @@ table {
     height: 150px;
     font-size: 100px;
     border: solid;
+    background-color: #333333;
 }
 
 p {
@@ -31,19 +50,26 @@ p {
 }
 
 .x {
+    font-weight: bold;
+    font-family: 'Permanent Marker', cursive;
     color: red;
-    font-size: bold;
 }
 
 .o {
+    font-weight: bold;
+    font-family: 'Permanent Marker', cursive;
     color: green;
-    font-size: bold;
 }
 
 .validation {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.validation-text {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: bold;
+    font-size: 40px;
 }
 
 .displayNone {

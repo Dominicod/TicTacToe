@@ -1,24 +1,25 @@
 // initializes varibles
+// boardActive: Returns a node list that edits the DOM to insert "X"/"O"
 const boardActive = document.querySelectorAll("p");
+// Memory: An array of strings to represent states of the board
 let memory = [];
 const result = document.querySelector('.validation-text');
 let counter = 0;
+// boardGrid: An array that represents the current spaces available on the board
 boardGrid = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 let x = 0;
 let o = 0;
 
+// Main game function
 function tictactoe(input, time) {
     if (input == 0) {
         clearBoard();
         random(input, time);
-        console.log(memory)
     } else if (input == 1) {
         console.log("one")
     } else {
-        console.log(time)
         clearBoard();
         random(input, time);
-        console.log(memory)
     }
     return;
 }
@@ -32,7 +33,9 @@ function random(input, time) {
         board += boardActive[i].className;
     }
     memory.push(board);
+
     move = Math.floor(Math.random() * boardGrid.length);
+
     if (x > o) {
         boardActive[boardGrid[move]].innerHTML = "O";
         boardActive[boardGrid[move]].className = "o";
@@ -41,7 +44,7 @@ function random(input, time) {
         if (counter >= 2) {
             if (validate() == true) {
                 result.innerHTML = "O Player Wins!";
-                result.className = "o";
+                result.className = "o validation-text";
                 return;
             }
         }
@@ -54,7 +57,7 @@ function random(input, time) {
     if (counter >= 2) {
         if (validate() == true) {
             result.innerHTML = "X Player Wins!";
-            result.className = "x";
+            result.className = "x validation-text";
             return;
         }
     }
@@ -67,6 +70,7 @@ function random(input, time) {
         result.className = "";
         return;
     } else {
+        // Sets the speed of which the game will run with the value "time"
         counter++;
         setTimeout(() => {
             random(input, time);
