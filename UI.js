@@ -30,7 +30,7 @@ function tab(input) {
         <button onClick="tab(0)">Go Home</button>
         <button onClick="clearBoard()">Clear Board</button>
         <button onClick="tictactoe(0, 0)">Quick Game</button>
-        <button onClick="">Step-Through</button>
+        <button onClick="tab(6); tictactoe(1,0); stepthrough(3)">Step-Through</button>
         <button onClick="tab(5)">Timed Game</button>
         `
         // Optimal AI Gamemodes
@@ -39,14 +39,30 @@ function tab(input) {
         <button onClick="tab(0)">Go Home</button>
         <button onClick="clearBoard()">Clear Board</button>
         <button onClick="">Quick Game</button>
-        <button onClick="">Step-Through</button>
-        <button onClick="">Timed Game</button>
+        <button onClick="tab(6); stepthrough(3)">Step-Through</button>
+        <button onClick="tab(5)">Timed Game</button>
         `
     }
         // Input Time Selector
     else if (input == 5) {
         tabs.innerHTML = `
         <button onClick="tab(0)">Go Home</button>
+        <input type="text" id="userinput" placeholder="Time in Miliseconds"></input>
+        <button onClick="submit()">Submit</button>
         `
     }
+        // Step-through functions
+    else if  (input == 6) {
+        tabs.innerHTML = `
+        <button onClick="tab(0)">Go Home</button>
+        <button onClick="stepthrough(1)">Backward</button>
+        <button onClick="stepthrough(2)">Forward</button>
+        `
+    }
+}
+
+// Submit function for input==5(Random:time)
+function submit() {
+    userinput = document.getElementById('userinput').value
+    tictactoe(2, userinput);
 }

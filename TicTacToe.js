@@ -12,12 +12,17 @@ let o = 0;
 
 // Main game function
 function tictactoe(input, time) {
+    // Random AI Game
     if (input == 0) {
         clearBoard();
         random(input, time);
+    // Random Step-Through Game
     } else if (input == 1) {
-        console.log("one")
-    } else {
+        clearBoard();
+        random(input, time)
+        console.log(memory)
+    // Timed Game
+    } else if (input == 5) {
         clearBoard();
         random(input, time);
     }
@@ -28,7 +33,7 @@ function tictactoe(input, time) {
 // Computer generates random X/O pattern with no logic
 function random(input, time) {
     // Gets current status of board and pushes to memory
-    let board = "";
+    let board = [];
     for (let i = 0; i < boardActive.length; i++) {
         board += boardActive[i].className;
     }
@@ -37,26 +42,35 @@ function random(input, time) {
     move = Math.floor(Math.random() * boardGrid.length);
 
     if (x > o) {
-        boardActive[boardGrid[move]].innerHTML = "O";
+        // For step-through, as we want to log to memory, not push to board. All input != 1 cases are related.
+        if (input != 1) {
+            boardActive[boardGrid[move]].innerHTML = "O";
+        }
         boardActive[boardGrid[move]].className = "o";
         o++;
         // Validates after 3 turns
         if (counter >= 2) {
             if (validate() == true) {
-                result.innerHTML = "O Player Wins!";
+                if (input != 1) {
+                    result.innerHTML = "O Player Wins!";
+                }
                 result.className = "o validation-text";
                 return;
             }
         }
     } else {
-        boardActive[boardGrid[move]].innerHTML = "X";
+        if (input != 1) {
+            boardActive[boardGrid[move]].innerHTML = "X";
+        }
         boardActive[boardGrid[move]].className = "x";
         x++;
     }
     // Validates after 3 turns
     if (counter >= 2) {
         if (validate() == true) {
-            result.innerHTML = "X Player Wins!";
+            if (input != 1) {
+                result.innerHTML = "X Player Wins!";
+            }
             result.className = "x validation-text";
             return;
         }
@@ -66,7 +80,9 @@ function random(input, time) {
 
     // Sets time it takes for function to run, runs max 8 turns
     if (counter == 8) {
-        result.innerHTML = "No Winner";
+        if (input != 1) {
+            result.innerHTML = "No Winner";
+        }
         result.className = "";
         return;
     } else {
@@ -75,6 +91,19 @@ function random(input, time) {
         setTimeout(() => {
             random(input, time);
         }, time);
+    }
+}
+
+// Stepthrough function that uses two in puts to know if to go forward/backward
+function stepthrough(input) {
+    if (input == 1) {
+        
+    } else if (input == 2) {
+
+    } else {
+       // for (let i = 0; i < boardActive.length; i++) {
+            
+       // }
     }
 }
 
